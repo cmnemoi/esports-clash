@@ -9,7 +9,7 @@ public class CreatePlayerTests {
         var playerRepository = new PlayerRepository();
         var createPlayerUseCase = new CreatePlayerUseCase(playerRepository);
 
-        var playerId = createPlayerUseCase.execute("name");
+        var playerId = createPlayerUseCase.execute("name").id;
 
         var expectedPlayer = new Player(playerId, "name");
         var actualPlayer = playerRepository.findById(playerId);
